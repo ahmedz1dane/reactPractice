@@ -11,9 +11,15 @@ function App() {
   let [counter, setCounter] = useState(15);
   // let counter = 15;
   let addVal = (cnt) => {
-    cnt = cnt + 1;
     if (cnt < 21) {
-      setCounter(cnt);
+      setCounter(cnt + 1);
+      setCounter(cnt + 1);
+      // in React , in case of setCounter ,The value of
+      // cnt is not updated immedeately after that command
+      // is executed , these setCounter will be batched and
+      // then executed , so the value of cnt is not incremented twise
+      // in order to do so we can do as following
+      setCounter((prevCounter) => prevCounter + 1);
     }
   };
 
