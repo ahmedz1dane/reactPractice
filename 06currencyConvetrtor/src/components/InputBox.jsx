@@ -2,8 +2,8 @@ import React, { useId } from "react";
 function InputBox({
   label,
   amount, // DOUBT: why this much parameters
-  onAmountChange, // and why some differnce in parameter syntax
-  onCurrencyChange,
+  onAmountChange, // and why some differnce in parameter syntax : these are all props paassed from the app.jsx
+  onCurrencyChange, // this line and the line jst above this are 2 functions
   currencyOption = [],
   selectedCurrenncy = "usd",
   amountDisable = false,
