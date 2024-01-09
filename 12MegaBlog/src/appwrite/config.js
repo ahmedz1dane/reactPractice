@@ -31,7 +31,7 @@ export class Service {
     this.bucket = new Storage(this.client);
   }
   // post related services
-  async createPost({ title, slug, content, featuredImage, status, userId }) {
+  async createPost({ title, slug, content, featuredimage, status, userid }) {
     try {
       return await this.databases.createDocument(
         conf.appwriteDatabaseId,
@@ -40,9 +40,9 @@ export class Service {
         {
           title,
           content,
-          featuredImage,
+          featuredimage,
           status,
-          userId,
+          userid,
         }
       );
     } catch (error) {
@@ -50,7 +50,7 @@ export class Service {
     }
   }
 
-  async updatePost(slug, { title, content, featuredImage, status, userId }) {
+  async updatePost(slug, { title, content, featuredimage, status, userid }) {
     try {
       return await this.databases.updateDocument(
         conf.appwriteDatabaseId,
@@ -59,7 +59,7 @@ export class Service {
         {
           title,
           content,
-          featuredImage,
+          featuredimage,
           status,
         }
       );
@@ -96,6 +96,15 @@ export class Service {
   }
 
   async getPosts(queries = [Query.equal("status", "active")]) {
+    // DOUBT: the working of the above code :
+    // ANS: here we are giving a default value to the
+    //      query , so if we doesnt pass any argument
+    //      then that default value will be used and
+    //      the post with active status will only be
+    //      displayed
+
+    // here in the above queries is an array that
+    // contains whose status is active
     try {
       return await this.databases.listDocuments(
         conf.appwriteDatabaseId,
