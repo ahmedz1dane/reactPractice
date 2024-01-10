@@ -5,7 +5,7 @@ import { useNavigate, useParams } from "react-router-dom";
 
 function EditPost() {
   const [post, setPosts] = useState(null);
-  const { slug } = useParams;
+  const { slug } = useParams();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -20,7 +20,12 @@ function EditPost() {
     }
   }, [slug, navigate]);
   return post ? (
-    <div className="py-8">
+    <div
+      className="py-8"
+      style={{
+        marginTop: "50px",
+      }}
+    >
       <Container>
         <PostForm post={post} />
       </Container>

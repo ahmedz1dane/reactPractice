@@ -30,7 +30,7 @@ function Login() {
         const userData = await authservice.getCurrentuser(); // Fetch current user's data
         if (userData) {
           // If userData is available, dispatch an action (authLogin) with userData
-          dispatch(authLogin(userData));
+          dispatch(authLogin({ userData }));
         }
         // DOUBT : here what and all will be there in userData
 
@@ -42,7 +42,15 @@ function Login() {
   };
 
   return (
-    <div className="flex items-center justify-center w-full">
+    <div
+      className="flex items-center justify-center w-full "
+      style={{
+        backgroundImage: `url('https://unsplash.com/photos/pUAM5hPaCRI/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8Mzh8fHJlbmRlciUyMGJsb2d8ZW58MHwwfHx8MTcwNDg5NzE1OXww&force=true&w=2400')`, // Replace this URL with your image URL
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        height: "100vh",
+      }}
+    >
       <div
         className={`mx-auto w-full max-w-lg bg-gray-100 rounded-xl p-10 border border-black/10`}
       >
