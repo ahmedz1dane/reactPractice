@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { login as authLogin } from "../store/authSlice";
-import { Button, Input, Logo } from "../components";
+import { Button, Input } from "../components";
+import { Logoii } from "../components";
 import { useDispatch } from "react-redux";
 import authservice from "../appwrite/auth";
 import { useForm } from "react-hook-form";
@@ -45,18 +46,18 @@ function Login() {
     <div
       className="flex items-center justify-center w-full "
       style={{
-        backgroundImage: `url('https://unsplash.com/photos/pUAM5hPaCRI/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8Mzh8fHJlbmRlciUyMGJsb2d8ZW58MHwwfHx8MTcwNDg5NzE1OXww&force=true&w=2400')`, // Replace this URL with your image URL
+        backgroundImage: `url('https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=2073&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D')`, // Replace this URL with your image URL
         backgroundSize: "cover",
         backgroundPosition: "center",
-        height: "100vh",
+        height: "95vh",
       }}
     >
       <div
         className={`mx-auto w-full max-w-lg bg-gray-100 rounded-xl p-10 border border-black/10`}
       >
         <div className="mb-2 flex justify-center">
-          <span className="inline-block w-full max-w-[100px]">
-            <Logo width="100%" />
+          <span className="inline-block w-full max-w-[100px] ">
+            <Logoii width="100%" />
           </span>
         </div>
         <h2 className="text-center text-2xl font-bold leading-tight">

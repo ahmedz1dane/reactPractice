@@ -50,7 +50,13 @@ function Header() {
   return (
     <header
       className="py-3 shadow bg-gray-200 "
-      style={{ position: "fixed", width: "100%", top: "0", zIndex: "100" }}
+      style={{
+        position: "fixed",
+        width: "100%",
+        top: "0",
+        zIndex: "100",
+        backgroundColor: "#1e1e1e",
+      }}
     >
       <Container>
         <nav className="flex">
@@ -60,7 +66,7 @@ function Header() {
             </Link>
           </div>
 
-          <ul className="flex ml-auto">
+          <ul className="flex ml-auto text-white">
             {navItems.map((item) =>
               item.active ? (
                 <li key={item.name}>
