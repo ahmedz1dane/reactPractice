@@ -24,6 +24,7 @@ export default function Post() {
   }, [slug, navigate]);
 
   const deletePost = () => {
+    // post.$id and slug are same
     appwriteService.deletePost(post.$id).then((status) => {
       if (status) {
         appwriteService.deleteFile(post.featuredimage);

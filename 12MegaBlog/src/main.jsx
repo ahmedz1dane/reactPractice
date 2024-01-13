@@ -71,6 +71,9 @@ const router = createBrowserRouter([
       },
       {
         path: "/edit-post/:slug",
+        // DOUBT: why :slug is used instead of slug
+        // ANS: cause :slug indicates that the value can
+        //      can be dynamic rather that just slug
         element: (
           <AuthLayout authentication>
             {" "}

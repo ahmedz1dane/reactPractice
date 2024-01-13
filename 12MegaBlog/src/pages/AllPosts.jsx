@@ -4,27 +4,33 @@ import appwriteService from "../appwrite/config";
 
 function AllPosts() {
   const [posts, setPosts] = useState([]);
-  useEffect(() => {}, []);
+  useEffect(() => {
+    appwriteService.getPosts([]).then((posts) => {
+      console.log(posts);
+      // DOUBT: why we are passing  an empty array as
+      //        parameter
 
-  appwriteService.getPosts([]).then((posts) => {
-    // DOUBT: why we are passing  an empty array as
-    //        parameter
+      // what I understood
+      //      :when we check the config we can see that
+      //       we are passing some default value to
+      //       the parameter named queries
+      //       here we are passsing an empty array
+      //       as the parameter , therefore the
+      //       value of query become an empty array
+      //       therefore we will be getting all the posts
+      //       instead of the filtered ones...
 
-    // what I understood
-    //      :when we check the config we can see that
-    //       we are passing some default value to
-    //       the parameter named queries
-    //       here we are passsing an empty array
-    //       as the parameter , therefore the
-    //       value of query become an empty array
-    //       therefore we will be getting all the posts
-    //       instead of the filtered ones...
+      if (posts) {
+        setPosts(posts.documents);
+        // DOUBT : why
+        // ANS: cause if we do the getPosts function we will
+        //      get the details of all the posts (which are the
+        //      column names in appwite) . These all details
+        //      will be in an object named documents
+      }
+    });
+  }, []);
 
-    if (posts) {
-      setPosts(posts.documents);
-      // DOUBT : why
-    }
-  });
   return (
     <div
       className="w-full py-8"

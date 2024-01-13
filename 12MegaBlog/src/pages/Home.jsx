@@ -6,13 +6,48 @@ import bg from "../img/1.png";
 
 function Home() {
   const [posts, setPosts] = useState([]);
+
   const userData = useSelector((state) => state.auth.userData);
 
   useEffect(() => {
     appwriteService.getPosts().then((posts) => {
       if (posts) {
         setPosts(posts.documents);
-        // DOUBT: what is post.documents ?
+        // DOUBT: what is post.documents and what
+        //        will be there in posts , single or
+        //        multiple posts ?
+
+        // ANS: based on the back-end configuration
+        //      the data will be fetched as follows
+        //
+        //      following is just an example
+        //      the actual data will be the column
+        //      names that is in the appwrite
+        //      {
+        //      "documents": [
+        //        {
+        //          "$id": "post-id-1",
+        //          "$collection": "posts",
+        //          "$permissions": {
+        //            "read": ["*"],
+        //            "write": ["user-id-1"]
+        //          },
+        //          "title": "Post 1",
+        //          "content": "This is the content of Post 1"
+        //        },
+        //        {
+        //          "$id": "post-id-2",
+        //          "$collection": "posts",
+        //          "$permissions": {
+        //            "read": ["*"],
+        //            "write": ["user-id-2"]
+        //          },
+        //          "title": "Post 2",
+        //          "content": "This is the content of Post 2"
+        //        },
+        //        // ... more posts
+        //      ]
+        //    }
       }
     });
   }, []);
@@ -41,6 +76,10 @@ function Home() {
       </div>
     );
   }
+  // DOUBT: is there a need fo the else keyword?
+  // ANS: in javascript the code that jst follows
+  //      the if block is implicitly treated as else
+  //      block
   return (
     <div
       className="w-full py-8"

@@ -5,7 +5,8 @@ import { Link } from "react-router-dom";
 function PostCard({ $id, title, featuredimage }) {
   return (
     // here $id is the id of the postcard
-    // DOUBT: why $ used check it at last
+    // DOUBT: why $ used check it at last:
+    // ANS: $id is the slug in appwrite id is written as $id
 
     // and the id of the image is feaaturedImage
     // because in the database the image will be

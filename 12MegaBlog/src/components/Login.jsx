@@ -14,6 +14,7 @@ function Login() {
   const [error, setError] = useState("");
 
   const login = async (data) => {
+    console.log(data);
     // consolelog and find what is data !!!!!!
     // ANS: Data will be the email and password cause
     //      we can see that this function named login is passed

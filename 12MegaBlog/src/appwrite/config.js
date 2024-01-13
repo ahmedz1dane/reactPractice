@@ -18,6 +18,12 @@ import { Client, Databases, Storage, Query, ID } from "appwrite";
 // we mainly use this funtion in case of the read/write
 // operation etc.
 
+// DOUBT: what is the difference between the daatabases
+//        and the bucket (storage) that is used below ?
+// ANS: by seeing in the appwrite we can see that
+//      database is having the table with the details
+//      that is required for the posts. Whereas storage
+//      has the images
 export class Service {
   client = new Client();
   databases;

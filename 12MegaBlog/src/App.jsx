@@ -14,16 +14,22 @@ function App() {
       .getCurrentuser()
       //01 DOUBT: what data will be fetched by getCurrentUser
       //        and from where it gets ?
+      // ANS: data will be like $id , name ,email ,logintime etc
+      //      refer redux to understand this
       .then((userData) => {
         //02 DOUBT  : is it necessary to use then ?
         // ANS : so we will be able to handle the
         //       result of the data returned
         if (userData) {
           dispatch(login({ userData }));
-          // DOUBT: is it necessary to pass as object
-          // ANS: suppose if there are multiple varibles
-          //      in payload , then we should pass as an
-          //      object , otherwise we can pass normally
+          // here we need to destructure and send
+          // cause if we doesnt do like that , when we login
+          // there wont be an object named userData in the
+          // payload instead data will be stored individually
+          // in the payload . This will result in a problem
+          // cause there are many situations in other component
+          // we are accessing the data using userData . So if
+          // doesnt do like this , it will cause error
         } else {
           dispatch(logout());
         }

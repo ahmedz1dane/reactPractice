@@ -3,6 +3,8 @@ import { Editor } from "@tinymce/tinymce-react";
 import { Controller } from "react-hook-form";
 
 export default function RTE({ name, control, label, defaultValue = "" }) {
+  // console.log(control);
+  // control is an object that contain many details
   return (
     <div className="w-full">
       {label && <label className="inline-block mb-1 pl-1">{label}</label>}
@@ -59,6 +61,9 @@ export default function RTE({ name, control, label, defaultValue = "" }) {
             }}
             onEditorChange={onChange}
             // 1 DOUBT : how is the working of the above onChange
+            // ANS: onEditorChange means , if any change is madee to
+            //      the editor onChange is called . This onChange will
+            //      link that to the state of the form
           />
         )}
       />

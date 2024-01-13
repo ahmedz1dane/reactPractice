@@ -3,7 +3,22 @@ import React, { useId } from "react";
 const Input = React.forwardRef(function Input(
   { label, type = "text", classname = "", ...props },
   ref
-) {
+) // DOUBT: why are we using ref ?
+// ANS: when we go to the PostForm.jsx we can see that
+//      when we write the title , automatically the slug
+//      is created . Without ref it isnot possible
+//      in PostForm.jsx we can see that a useEffect that
+//      uses watch is responsible for the automatic
+//      generation . in that useEffect the changes made to
+//      value of the input field should be made to the DOM
+//      that is done by ref.
+
+// DOUBT: ref is not explicitely passed when using this
+//        component in the PostForm.jsx or any other parent
+//        component. Why ?
+// ANS:   cause it is implicitly done when we use the register
+//        function .
+{
   const id = useId();
   return (
     <div className="w-full">
